@@ -49,11 +49,4 @@ class CreateVote(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    def get(self, request, pk, choice_pk):
-        data = {'choice_id': choice_pk}
-        serializer = VoteSerializer(data=data)
-        if serializer.is_valid():
-            vote = serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
