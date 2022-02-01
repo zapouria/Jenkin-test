@@ -1,4 +1,4 @@
-node {
+pipeline {
   stage('Clone the Git') {
     git 'https://github.com/zapouria/Poll-Sample-REST.git'
   }
