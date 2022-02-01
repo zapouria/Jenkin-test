@@ -18,7 +18,7 @@ pipeline {
           -D sonar.login=admin \
           -D sonar.password=admin \
           -D sonar.exclusions=vendor/**,storage/**,resources/**,**/*.java \
-          -D sonar.sources=/var/jenkins_home/workspace/test2 \
+          -D sonar.sources=./ \
           -D sonar.host.url=http://10.0.0.54:9000"
           }
           timeout(time: 10, unit: 'MINUTES') {
