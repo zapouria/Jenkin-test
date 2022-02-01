@@ -7,8 +7,8 @@ pipeline {
       }
     }
     stage('SonarQube analysis') {
+      def scannerHome = tool 'SonarQubeScanner';
       steps{
-        def scannerHome = tool 'SonarQubeScanner';
         sh "${scannerHome}/bin/sonar-scanner \
         -D sonar.projectKey=jenkin-test \
         -D sonar.login=admin \
