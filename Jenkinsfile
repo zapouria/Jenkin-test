@@ -11,7 +11,7 @@ pipeline {
         def scannerHome = tool 'SonarQubeScanner';
       }
       steps{
-        withSonarQubeEnv('SonarQubeScanner') {
+        withSonarQubeEnv('SonarQube') {
           sh "${scannerHome}/bin/sonar-scanner \
           -D sonar.projectKey=jenkin-test \
           -D sonar.login=admin \
