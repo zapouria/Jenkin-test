@@ -12,6 +12,7 @@ pipeline {
       }
       steps{
         withSonarQubeEnv('SonarQube') {
+          sh "ls -la" 
           sh "${scannerHome}/bin/sonar-scanner \
           -D sonar.projectKey=jenkin-test \
           -D sonar.login=admin \
