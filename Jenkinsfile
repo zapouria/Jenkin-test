@@ -1,35 +1,15 @@
 pipeline {
-  agent any
+  agent { docker { image 'python:3.7.2' } }
   stages {
-    stage('Clone the Git') {
-      agent{
-        docker {
-          image 'python:2-alpine'
-        }
-      }
-      steps{
-        git 'https://github.com/zapouria/Jenkin-test.git'
+    stage('build') {
+      steps {
+        sh 'pip install -r requirements.txt'
       }
     }
-    stage('SonarQube analysis') {
-      environment {
-        def scannerHome = tool 'SonarQubeScanner';
-      }
-      steps{
-        withSonarQubeEnv('SonarQube') {
-          sh "${scannerHome}/bin/sonar-scanner \
-          -D sonar.projectKey=jenkin-test \
-          -D sonar.login=admin \
-          -D sonar.password=admin \
-          -D sonar.exclusions=vendor/**,storage/**,resources/**,**/*.java \
-          -D sonar.sources=./ \
-          -D sonar.host.url=http://10.0.0.54:9000"
-          }
-          //timeout(time: 10, unit: 'MINUTES') {
-            //waitForQualityGate abortPipeline: true
-          //}
-          sh 'python abc.py'
-        }
-      }
+    stage('test') {
+      steps {
+        sh 'python test.py'
+      }   
+    }
   }
 }
