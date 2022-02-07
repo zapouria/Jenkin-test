@@ -23,7 +23,7 @@ pipeline {
           //timeout(time: 10, unit: 'MINUTES') {
             //waitForQualityGate abortPipeline: true
           //}
-          bat 'python abc.py'
+          sh 'python abc.py'
         }
       }
   }
