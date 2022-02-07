@@ -12,7 +12,6 @@ pipeline {
       }
       steps{
         withSonarQubeEnv('SonarQube') {
-          sh 'python abc.py'
           sh "${scannerHome}/bin/sonar-scanner \
           -D sonar.projectKey=jenkin-test \
           -D sonar.login=admin \
