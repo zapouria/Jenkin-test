@@ -27,8 +27,7 @@ class QuestionModelTests(TestCase):
         q.choices.create(choice_text='test')
         c =Choice.objects.filter(choice_text='test')
         q = Question.objects.filter(question='Helo...')
-    def test_delete_objects(self):
-        q = Question(question="Helo...", pub_date=timezone.now())
+      q = Question(question="Helo...", pub_date=timezone.now())
         q.save()
         q.choices.create(choice_text='test')
         c =Choice.objects.filter(choice_text='test')
