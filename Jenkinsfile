@@ -20,9 +20,9 @@ pipeline {
           -D sonar.sources=./ \
           -D sonar.host.url=http://10.0.0.54:9000"
           }
-          timeout(time: 10, unit: 'MINUTES') {
-            waitForQualityGate abortPipeline: true
-          }
+          //timeout(time: 10, unit: 'MINUTES') {
+            //waitForQualityGate abortPipeline: true
+          //}
         }
       }
   }
