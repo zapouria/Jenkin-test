@@ -2,11 +2,6 @@ pipeline {
   agent any
   stages {
     stage('Clone the Git') {
-      agent{
-        docker {
-          image 'python:2-alpine'
-        }
-      }
       steps{
         git 'https://github.com/zapouria/Jenkin-test.git'
       }
