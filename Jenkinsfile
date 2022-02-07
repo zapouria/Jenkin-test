@@ -12,7 +12,9 @@ pipeline {
       }
       steps{
         withSonarQubeEnv('SonarQube') {
+          docker.image('python:3.6').inside {
           sh 'python abc.py'
+          }
           sh "${scannerHome}/bin/sonar-scanner \
           -D sonar.projectKey=jenkin-test \
           -D sonar.login=admin \
