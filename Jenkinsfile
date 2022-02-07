@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent{docker { image 'python:3' }}
   stages {
     stage('Clone the Git') {
       steps{
