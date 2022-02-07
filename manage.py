@@ -3,6 +3,7 @@ import os
 import sys
 
 if __name__ == "__main__":
+    0/0
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "restAPI.settings")
     try:
         from django.core.management import execute_from_command_line
