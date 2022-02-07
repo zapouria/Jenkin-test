@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Clone the Git') {
       steps{
-        git 'https://github.com/zapouria/Poll-Sample-REST.git'
+        git 'https://github.com/zapouria/Jenkin-test.git'
       }
     }
     stage('SonarQube analysis') {
