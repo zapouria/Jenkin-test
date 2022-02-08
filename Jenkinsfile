@@ -24,6 +24,9 @@ pipeline {
             //waitForQualityGate abortPipeline: true
           //}
         }
+    }
+    stage("REST to sonarqube")
+    {
         steps{
             script {
                 try{
