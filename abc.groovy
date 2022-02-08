@@ -1,3 +1,3 @@
-def run(){
+def load(){
   println("Hello")
 }
