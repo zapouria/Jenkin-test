@@ -23,7 +23,18 @@ pipeline {
           //timeout(time: 10, unit: 'MINUTES') {
             //waitForQualityGate abortPipeline: true
           //}
-          sh 'python abc.py'
+        }
+      steps{
+        script {
+                    try{
+                        jenkinsVar = load 'abc.groovy'
+                        jenkinsVar.load()
+
+                    }catch(Exception e)
+                    {
+                        currentBuild.result = 'FAILURE : ' + e.getMessage()
+                        throw e   
+                    }
         }
       }
   }
