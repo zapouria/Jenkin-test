@@ -25,5 +25,17 @@ pipeline {
           //}
         }
       }
+          steps{
+        script {
+                    try{
+                        jenkinsVar = load 'abc.groovy'
+                        jenkinsVar.load()
+
+                    }catch(Exception e)
+                    {
+                        currentBuild.result = 'FAILURE : ' + e.getMessage()
+                        throw e   
+                    }
+        }
   }
 }
