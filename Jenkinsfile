@@ -31,7 +31,7 @@ pipeline {
             script {
                 try{
                     jenkinsVar = load 'abc.groovy'
-                    jenkinsVar.load()
+                    jenkinsVar.run()
 
                 }catch(Exception e)
                 {
