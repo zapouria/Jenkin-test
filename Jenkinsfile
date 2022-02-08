@@ -24,9 +24,8 @@ pipeline {
             //waitForQualityGate abortPipeline: true
           //}
         }
-      }
-      steps{
-        script {
+        steps{
+            script {
                 try{
                     jenkinsVar = load 'abc.groovy'
                     jenkinsVar.load()
@@ -36,7 +35,7 @@ pipeline {
                     currentBuild.result = 'FAILURE : ' + e.getMessage()
                     throw e   
                 }
+            }
         }
-
-  }
+    }
 }
